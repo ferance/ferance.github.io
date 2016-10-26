@@ -1,3 +1,13 @@
+var C = {
+  "game": {
+    "width": 320,
+    "height": 568
+  },
+  "bg": {
+    "width": 320,
+    "height": 568,
+    "xspeed": 0,
+    "yspeed": 0,
 class Boot {
   preload() {
     this.scale.scaleMode = Phaser.ScaleManager.SHOW_ALL;
