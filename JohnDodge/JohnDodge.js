@@ -18,7 +18,9 @@ var C = {
     "fps": 4,
     "startx": 160,
     "starty": 500
-  }
+  },
+  "d" : {
+    "file": "JohnAssets/
 }
 
 class Boot {
