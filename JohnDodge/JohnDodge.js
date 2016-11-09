@@ -14,7 +14,10 @@ var C = {
     "file": "JohnAssets/Duck.png",
     "width": 46,
     "height": 64,
-    "frame": 2
+    "frames": 2,
+    "fps": 4,
+    "startx": 160,
+    "starty": 500
   }
 }
 
@@ -44,7 +47,15 @@ class Load {
 class Play {
   create() {
     console.log("Entered Play State");
+
     this.bg = this.add.tileSprite(0,0,C.bg.width,C.bg.height,"bg");
+
+    this.player = this.add.sprite(C.p.startx,C.p.starty,"player");
+    this.player.anchor.set(0.5,0.5);
+    this.player.smoothed = false;
+    this.player.scale.set(1);
+    this.player.animations.add("flap");
+    this.player.animations.play("flap",C.p.fps,true);
   }
 }
 
