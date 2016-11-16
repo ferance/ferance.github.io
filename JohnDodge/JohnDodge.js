@@ -20,7 +20,14 @@ var C = {
     "starty": 500
   },
   "d" : {
-    "file": "JohnAssets/
+    "file": "JohnAssets/Apple.png",
+    "width": 64,
+    "height": 64,
+    "frames": 2,
+    "fps": 10,
+    "startx": 160,
+    "starty": 32
+  }
 }
 
 class Boot {
@@ -38,7 +45,8 @@ class Load {
   preload() {
     console.log("Loading...");
     this.load.image("bg",C.bg.file)
-    this.load.spritesheet("player",C.p.file,C.p.width,C.p.height,C.p.frames)
+    this.load.spritesheet("player",C.p.file,C.p.width,C.p.height,C.p.frames);
+    this.load.spritesheet("dodge",C.d.file,C.d.width,C.d.height,C.d.frames);
   }
   create() {
     console.log("Loaded");
@@ -58,6 +66,13 @@ class Play {
     this.player.scale.set(1);
     this.player.animations.add("flap");
     this.player.animations.play("flap",C.p.fps,true);
+
+    this.dodge =this.add.sprite(C.d.startx,C.d.starty,"dodge");
+    this.dodge,anchor.set(0.5,0.5);
+    this.dodge.smoothed = false;
+    this.dodge.scale.set(1);
+    this.dodge.animations.add("anim")
+    this.dodge.animations.play("anim",C.d.fps,true);
   }
 }
 
