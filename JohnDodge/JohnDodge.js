@@ -17,7 +17,8 @@ var C = {
     "frames": 2,
     "fps": 4,
     "startx": 160,
-    "starty": 500
+    "starty": 500,
+    "speed": 5
   },
   "d" : {
     "file": "JohnAssets/Apple.png",
@@ -29,6 +30,8 @@ var C = {
     "starty": 32
   }
 }
+
+//-----------------------------------------------------------------------------------
 
 class Boot {
   preload() {
@@ -67,14 +70,21 @@ class Play {
     this.player.animations.add("flap");
     this.player.animations.play("flap",C.p.fps,true);
 
-    this.dodge =this.add.sprite(C.d.startx,C.d.starty,"dodge");
+    this.dodge = this.add.sprite(C.d.startx,C.d.starty,"dodge");
     this.dodge.anchor.set(0.5,0.5)
     this.dodge.smoothed = false;
     this.dodge.scale.set(1);
     this.dodge.animations.add("anim")
     this.dodge.animations.play("anim",C.d.fps,true);
+
+    this.cursors = this.input.keyboard.createCursorKeys();
+  }
+  update() {
+    console.log("Play.update() called.");
   }
 }
+
+//-----------------------------------------------------------------------------------
 
 function restart() {
   game.state.start("Boot");
