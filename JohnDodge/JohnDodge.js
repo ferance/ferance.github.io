@@ -68,7 +68,7 @@ class Play {
     this.player.animations.play("flap",C.p.fps,true);
 
     this.dodge =this.add.sprite(C.d.startx,C.d.starty,"dodge");
-    this.dodge,anchor.set(0.5,0.5);
+    this.dodge.anchor.set(0.5,0.5)
     this.dodge.smoothed = false;
     this.dodge.scale.set(1);
     this.dodge.animations.add("anim")
