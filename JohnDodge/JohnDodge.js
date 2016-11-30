@@ -27,7 +27,8 @@ var C = {
     "frames": 1,
     "fps": 10,
     "startx": 160,
-    "starty": 32
+    "starty": -32,
+    "speed": 20
   }
 }
 
@@ -79,8 +80,22 @@ class Play {
 
     this.cursors = this.input.keyboard.createCursorKeys();
   }
+
   update() {
-    console.log("Play.update() called.");
+    if (this.cursors.left.isDown) {
+      this.player.x -= C.p.speed;
+    }
+    if (this.cursors.right.isDown) {
+      this.player.x += C.p.speed;
+    }
+    if (this.dodge.y > this.game.height) {
+      this.dodge.y = C.d.starty
+    }
+    this.dodge.y += C.d.speed;
+  }
+  
+  render() {
+    game.debug.text("x: " + this.dodge.x + ", y: " + this.dodge.y, 4, 16);
   }
 }
 
