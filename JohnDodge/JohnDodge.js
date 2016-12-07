@@ -119,7 +119,7 @@ function randInt(min,max) {
 function checkOverlap(spriteA,spriteB) {
   var boundsA = spriteA.getBounds();
   var boundsB = spriteB.getBounds();
-  return Phaser.Rectangles.intersects(boundsA,boundsB);
+  return Phaser.Rectangle.intersects(boundsA,boundsB);
 }
 
 //-----------------------------------------------------------------------------------
