@@ -109,7 +109,7 @@ function restart() {
   game.state.start("Boot");
 }
 
-function randInt(max) {
+function randInt(min,max) {
   return Math.floor(Math.random() * (max - min) + min);
 }
 
