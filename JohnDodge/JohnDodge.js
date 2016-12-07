@@ -28,7 +28,7 @@ var C = {
     "fps": 10,
     "startx": 160,
     "starty": -32,
-    "speed": 20
+    "speed": 12
   }
 }
 
@@ -104,6 +104,12 @@ class Play {
 function restart() {
   game.state.start("Boot");
 }
+
+function randInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+//-----------------------------------------------------------------------------------
 
 var game = new Phaser.Game(C.game.width,C.game.height);
 game.state.add("Boot",Boot);
