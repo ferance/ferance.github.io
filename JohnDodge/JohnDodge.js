@@ -93,8 +93,11 @@ class Play {
       let px = (C.d.width * this.dodge.scale.x) / 2;
       let max = C.game.width - px
       this.dodge.x = randInt(px,max);
-
     }
+    if (checkOverlap(this.player,this.dodge)) {
+      restart();
+    }
+
     this.dodge.y += C.d.speed;
   }
   
@@ -111,6 +114,12 @@ function restart() {
 
 function randInt(min,max) {
   return Math.floor(Math.random() * (max - min) + min);
+}
+
+function checkOverlap(spriteA,spriteB) {
+  var boundsA = spriteA.getBounds();
+  var boundsB = spriteB.getBounds();
+  return Phaser.Rectangles.intersects(boundsA,boundsB);
 }
 
 //-----------------------------------------------------------------------------------
