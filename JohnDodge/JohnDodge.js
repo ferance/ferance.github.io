@@ -92,10 +92,8 @@ class Play {
       this.dodge.y = C.d.starty
       let px = (C.d.width * this.dodge.scale.x) / 2;
       let max = C.game.width - px
-      let min = 0 + px
-      let newx = randInt(max);
-      if (newx < min){ newx = min }
-      this.dodge.x = newx
+      this.dodge.x = randInt(px,max);
+
     }
     this.dodge.y += C.d.speed;
   }
@@ -112,7 +110,7 @@ function restart() {
 }
 
 function randInt(max) {
-  return Math.floor(Math.random() * max);
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
 //-----------------------------------------------------------------------------------
